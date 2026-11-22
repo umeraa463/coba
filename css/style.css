@@ -1,0 +1,1037 @@
+/* ==========================================================================
+   LAVITRA SESERAHAN & MAHAR - MOBILE WEB STYLESHEET
+   Desain Presisi, Mewah, dan Proporsional (Mobile First)
+   ========================================================================== */
+
+/* --- GOOGLE FONTS IMPORT --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- DESIGN TOKENS / CSS VARIABLES --- */
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-brand: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette matching exact screenshots */
+  --color-primary-bronze: #8C653C;
+  --color-primary-dark: #6D4C2F;
+  --color-primary-light: #B48D65;
+  --color-bronze-accent: #C5A070;
+  
+  --color-bg-main: #FAF7F2;
+  --color-bg-warm: #F4EFEB;
+  --color-bg-card: #FFFFFF;
+  --color-border: #E8E1D5;
+  --color-border-light: #F0ECE4;
+
+  --color-text-main: #2C2621;
+  --color-text-muted: #6B6258;
+  --color-text-light: #9B938B;
+  --color-white: #FFFFFF;
+
+  /* Sizing and Layout */
+  --mobile-max-width: 430px;
+  --header-height: 64px;
+  --bottom-bar-height: 76px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  
+  --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 20px rgba(109, 76, 47, 0.07);
+  --shadow-floating: 0 -4px 20px rgba(0, 0, 0, 0.06);
+
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- RESET & BASE STYLES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: #EFECE6; /* Desktop background backdrop */
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+
+/* --- MOBILE SHELL / CONTAINER (PROPORSIONAL) --- */
+/* Membuat tampilan di desktop tetap menyerupai layar HP proporsional (max 430px)
+   sedangkan di HP asli akan full screen 100% tanpa frame */
+.mobile-viewport-shell {
+  width: 100%;
+  max-width: var(--mobile-max-width);
+  min-height: 100vh;
+  background-color: var(--color-bg-main);
+  position: relative;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- DESKTOP VIEW CONTROLLER BAR (Hanya terlihat di layar besar) --- */
+.desktop-view-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(44, 38, 33, 0.9);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 9999;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: var(--transition-normal);
+}
+.desktop-view-toggle:hover {
+  background: var(--color-primary-dark);
+}
+@media (min-width: 641px) {
+  .desktop-view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+/* --- HEADER / TOP NAVBAR --- */
+.site-header {
+  height: var(--header-height);
+  width: 100%;
+  background-color: var(--color-bg-main);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(232, 225, 213, 0.7);
+  transition: var(--transition-normal);
+}
+
+.site-header.scrolled {
+  background-color: rgba(250, 247, 242, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Header Back Button (Halaman Detail) */
+.header-back-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--color-primary-dark);
+  transition: var(--transition-normal);
+}
+.header-back-btn:hover {
+  background: rgba(140, 101, 60, 0.08);
+}
+.header-back-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--color-primary-dark);
+}
+
+/* Header Brand / Logo */
+.header-brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: 0.28em;
+  font-weight: 500;
+  color: var(--color-primary-bronze);
+  text-transform: uppercase;
+  margin-right: -0.28em; /* offset letter-spacing on last char */
+}
+
+/* Header Hamburger Button (Kotak Cokelat Khas) */
+.header-menu-btn {
+  width: 38px;
+  height: 38px;
+  background-color: var(--color-primary-dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  transition: var(--transition-normal);
+}
+.header-menu-btn:hover {
+  background-color: var(--color-primary-bronze);
+}
+.header-menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  transition: var(--transition-normal);
+}
+
+/* Offcanvas Drawer Menu */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 82%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--color-bg-main);
+  z-index: 1001;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-drawer.active {
+  right: 0;
+}
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+.drawer-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+}
+.drawer-nav-list {
+  list-style: none;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.drawer-nav-link {
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--color-text-main);
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--color-border);
+  transition: color 0.2s;
+}
+.drawer-nav-link:hover {
+  color: var(--color-primary-bronze);
+}
+.drawer-footer {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   IMAGE PLACEHOLDER SYSTEM (SESUAI PERMINTAAN USER: "TEMPAT UNTUK MENARUH GAMBAR")
+   ========================================================================== */
+.img-placeholder-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #EAE3D9;
+  border: 1.5px dashed #CBBBAA;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 14px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  user-select: none;
+}
+
+.img-placeholder-wrapper:hover {
+  border-color: var(--color-primary-bronze);
+  background-color: #E5DCCE;
+}
+
+/* Aspect ratios for different design elements */
+.aspect-hero {
+  aspect-ratio: 4 / 4.8; /* Hero aspect ratio */
+  border-radius: 0;
+  border: none;
+}
+.aspect-detail-hero {
+  aspect-ratio: 4 / 4.4;
+  border-radius: 0;
+  border: none;
+}
+.aspect-cerita {
+  aspect-ratio: 4 / 4.5;
+  border-radius: var(--radius-md);
+}
+.aspect-product {
+  aspect-ratio: 4 / 3.4;
+  border-radius: var(--radius-md);
+}
+.aspect-gallery {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+}
+.aspect-studio {
+  aspect-ratio: 4 / 3.2;
+  border-radius: var(--radius-md);
+}
+
+.placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+  border: 1px solid rgba(140, 101, 60, 0.2);
+}
+
+.placeholder-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+  stroke: var(--color-primary-bronze);
+  fill: none;
+  opacity: 0.85;
+}
+
+.placeholder-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 3px;
+}
+
+.placeholder-hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* User's inserted image */
+.user-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* otomatis muncul jika src diisi */
+  z-index: 1;
+}
+.user-image.loaded {
+  display: block;
+}
+
+/* File input tersembunyi untuk fitur drag/click upload langsung dari browser */
+.placeholder-file-input {
+  display: none;
+}
+
+/* Dark gradient overlay untuk Hero Sections */
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(25, 20, 16, 0.2) 0%, 
+    rgba(25, 20, 16, 0.5) 45%,
+    rgba(25, 20, 16, 0.82) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   HOMEPAGE SPECIFIC SECTIONS
+   ========================================================================== */
+
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 30px 22px 34px 22px;
+  color: #FFFFFF;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+.hero-title span {
+  display: block;
+}
+
+.hero-description {
+  font-size: 12.5px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 22px;
+  max-width: 320px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary-bronze {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+.btn-primary-bronze:hover {
+  background-color: var(--color-primary-bronze);
+  transform: translateY(-1px);
+}
+.btn-primary-bronze svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* --- SECTION COMMON HEADINGS --- */
+.section-header-block {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-bronze);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.section-divider {
+  width: 44px;
+  height: 1.5px;
+  background-color: var(--color-primary-bronze);
+  margin: 0 auto;
+  opacity: 0.7;
+}
+
+/* --- SECTION: CERITA KAMI --- */
+.section-cerita {
+  padding: 40px 22px 30px;
+  background-color: var(--color-bg-main);
+  text-align: center;
+}
+
+.cerita-text {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  text-align: center;
+  padding: 0 4px;
+}
+
+/* --- SECTION: KOLEKSI SIGNATURE --- */
+.section-signature {
+  padding: 30px 22px 40px;
+  background-color: var(--color-bg-main);
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-card .img-placeholder-wrapper {
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.product-card-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.product-card-desc {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+  max-width: 320px;
+}
+
+.product-card-link {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-primary-bronze);
+  transition: var(--transition-normal);
+}
+.product-card-link:hover {
+  color: var(--color-primary-bronze);
+  border-bottom-color: transparent;
+}
+
+/* --- SECTION: GALERI KARYA --- */
+.section-galeri {
+  padding: 36px 0;
+  background-color: var(--color-bg-warm);
+}
+
+.gallery-scroll-container {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 6px 22px 14px 22px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex: 0 0 78%;
+  scroll-snap-align: center;
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* --- SECTION: TESTIMONI --- */
+.section-testimoni {
+  padding: 40px 22px;
+  background-color: var(--color-bg-main);
+  text-align: center;
+}
+
+.testimoni-card {
+  padding: 10px 0 20px 0;
+}
+
+.testimoni-card:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 24px;
+}
+
+.quote-icon {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  line-height: 1;
+  color: var(--color-primary-bronze);
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.quote-text {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  font-style: normal;
+  margin-bottom: 16px;
+  padding: 0 10px;
+}
+
+.client-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+  margin-bottom: 2px;
+}
+
+.client-city {
+  font-size: 11px;
+  color: var(--color-text-light);
+}
+
+/* --- SECTION: PERTANYAAN UMUM (ACCORDION) --- */
+.section-faq {
+  padding: 36px 22px;
+  background-color: var(--color-bg-warm);
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.accordion-item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.accordion-trigger:hover {
+  color: var(--color-primary-bronze);
+}
+
+.accordion-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-primary-bronze);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg); /* Berubah menjadi X atau berputar */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 16px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.accordion-item.active .accordion-content {
+  max-height: 200px;
+  padding: 0 16px 14px 16px;
+}
+
+/* --- SECTION: KUNJUNGI STUDIO KAMI --- */
+.section-studio {
+  padding: 40px 22px 30px;
+  background-color: var(--color-bg-main);
+  text-align: center;
+}
+
+.studio-card-wrapper {
+  margin: 18px auto 20px;
+  max-width: 320px;
+}
+
+.studio-desc {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  padding: 36px 20px 45px;
+  background-color: var(--color-bg-main);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: 0.26em;
+  font-weight: 500;
+  color: var(--color-primary-bronze);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+}
+
+.footer-social-link {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 22px;
+  transition: color 0.2s;
+}
+.footer-social-link:hover {
+  color: var(--color-primary-bronze);
+}
+
+.footer-copyright {
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   DETAIL PRODUK SPECIFIC SECTIONS (IMAGE 2)
+   ========================================================================== */
+
+/* Detail Hero Section */
+.detail-hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.detail-hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: left;
+  padding: 30px 22px 28px 22px;
+  color: #FFFFFF;
+}
+
+.detail-product-title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.detail-product-desc {
+  font-size: 12.5px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 340px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Section: Material Utama */
+.section-material {
+  padding: 36px 22px;
+  background-color: var(--color-bg-main);
+}
+
+.material-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.material-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.material-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.material-icon-box {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material-icon-box svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--color-primary-bronze);
+  fill: none;
+}
+
+.material-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.material-card-desc {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* Section: Eksklusivitas Lavitra (Gallery) */
+.section-eksklusivitas {
+  padding: 36px 22px 40px;
+  background-color: var(--color-bg-warm);
+}
+
+.eksklusivitas-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.eksklusivitas-gallery .img-placeholder-wrapper {
+  box-shadow: var(--shadow-card);
+}
+
+/* Detail Footer Padding (Memberi ruang untuk bottom sticky bar) */
+.detail-footer-spacer {
+  height: var(--bottom-bar-height);
+}
+
+/* Sticky Bottom Action Bar */
+.sticky-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--mobile-max-width);
+  height: var(--bottom-bar-height);
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-floating);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 99;
+}
+
+.bottom-price-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.price-value {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.btn-order-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+.btn-order-cta:hover {
+  background-color: var(--color-primary-bronze);
+  transform: translateY(-1px);
+}
+.btn-order-cta svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   IMAGE UPLOAD HELPER TOAST / MODAL
+   (Fitur interaktif praktis agar user bisa tes pasang foto langsung dari web)
+   ========================================================================== */
+.photo-helper-toast {
+  position: fixed;
+  top: 74px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(44, 38, 33, 0.95);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.photo-helper-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Small smartphone border mockup styling on wide screens */
+@media (min-width: 641px) {
+  body {
+    padding: 30px 0 60px;
+    background: radial-gradient(circle at 50% 10%, #F5F2EB 0%, #DFD8CD 100%);
+  }
+  .mobile-viewport-shell {
+    border-radius: 36px;
+    border: 8px solid #2B2521;
+    min-height: 850px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+  /* Phone speaker top notch simulation */
+  .mobile-viewport-shell::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #1C1815;
+    border-radius: 4px;
+    z-index: 1002;
+  }
+  .sticky-bottom-bar {
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+}
