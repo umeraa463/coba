@@ -2,19 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Produk - Hidden Box | Lavitra Seserahan</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="theme-color" content="#FAF7F2">
 </head>
 <body>
 
-  <!-- TOMBOL TOGGLE VIEW KHUSUS DI DESKTOP -->
-  <button class="desktop-view-toggle" title="Ubah mode tampilan">
-    <span>📱</span> Mode Layar HP
-  </button>
-
-  <!-- OFFCANVAS DRAWER MENU -->
+  <!-- OFFCANVAS DRAWER MENU (NAVIGASI HAMBURGER UNTUK MOBILE) -->
   <div class="mobile-drawer-overlay"></div>
   <aside class="mobile-drawer">
     <div class="drawer-header">
@@ -31,28 +26,48 @@
       <li><a href="index.html#studio" class="drawer-nav-link">Kontak Studio</a></li>
     </ul>
     <div class="drawer-footer">
-      <p>© 2024 LAVITRA SESERAHAN MALANG</p>
+      <p>© LAVITRA SESERAHAN MALANG</p>
     </div>
   </aside>
 
-  <!-- MOBILE VIEWPORT SHELL -->
+  <!-- SITE WRAPPER / CONTAINER UTAMA -->
   <div class="mobile-viewport-shell">
 
     <!-- 1. HEADER DENGAN TOMBOL KEMBALI (BACK BUTTON) -->
     <header class="site-header">
-      <a href="index.html" class="header-back-btn" aria-label="Kembali ke Beranda" title="Kembali ke Beranda">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-      </a>
-      <a href="index.html" class="header-brand">
-        <span class="brand-name">L A V I T R A</span>
-      </a>
-      <button class="header-menu-btn" aria-label="Buka navigasi">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-inner">
+        <a href="index.html" class="header-back-btn" aria-label="Kembali ke Beranda" title="Kembali ke Beranda">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+
+        <a href="index.html" class="header-brand">
+          <span class="brand-name">L A V I T R A</span>
+        </a>
+
+        <!-- Navigasi Desktop -->
+        <nav class="desktop-nav">
+          <a href="index.html" class="desktop-nav-link">Beranda</a>
+          <a href="index.html#cerita-kami" class="desktop-nav-link">Cerita Kami</a>
+          <a href="index.html#koleksi-signature" class="desktop-nav-link">Koleksi Lainnya</a>
+          <a href="#material-utama" class="desktop-nav-link">Material Utama</a>
+          <a href="#eksklusivitas" class="desktop-nav-link">Galeri Detail</a>
+          <a href="index.html#faq" class="desktop-nav-link">FAQ</a>
+          <a href="index.html#studio" class="desktop-nav-link">Kontak Studio</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="https://wa.me/6285796426922?text=Halo%20Lavitra,%20saya%20tertarik%20dengan%20Hidden%20Box" target="_blank" rel="noopener noreferrer" class="header-cta-btn">
+            Tanya Produk
+          </a>
+          <button class="header-menu-btn" aria-label="Buka navigasi">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -77,139 +92,166 @@
         <!-- Dark Gradient Overlay & Teks Detail Produk -->
         <div class="hero-gradient-overlay"></div>
         <div class="detail-hero-content">
-          <h1 class="detail-product-title">Hidden Box</h1>
-          <p class="detail-product-desc">
-            Balutan eksklusif yang menyembunyikan keindahan seserahan Anda dengan anggun, menanti momen istimewa untuk diungkap.
-          </p>
+          <div class="detail-hero-content-inner">
+            <h1 class="detail-product-title">Hidden Box</h1>
+            <p class="detail-product-desc">
+              Balutan eksklusif yang menyembunyikan keindahan seserahan Anda dengan anggun, menanti momen istimewa untuk diungkap.
+            </p>
+          </div>
         </div>
       </section>
 
       <!-- 3. SECTION: MATERIAL UTAMA -->
       <section class="section-material" id="material-utama">
-        <div class="section-header-block">
-          <h2 class="section-title">Material Utama</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="material-cards-list">
-          
-          <!-- KARTU 1: PREMIUM SATIN FABRIC -->
-          <div class="material-card">
-            <div class="material-icon-box">
-              <!-- Geometric Satin Fabric Fold Monogram Icon -->
-              <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 18l4-12 4 12 4-12 4 12" />
-                <path d="M6 14h12" />
-              </svg>
-            </div>
-            <h3 class="material-card-title">PREMIUM SATIN FABRIC</h3>
-            <p class="material-card-desc">
-              Balutan kain satin premium yang lembut, jatuh dengan rapi, dan berkilau mewah.
-            </p>
+        <div class="container">
+          <div class="section-header-block">
+            <h2 class="section-title">Material Utama</h2>
+            <div class="section-divider"></div>
           </div>
 
-          <!-- KARTU 2: STURDY HARDBOX -->
-          <div class="material-card">
-            <div class="material-icon-box">
-              <!-- Geometric 3D Cube / Hardbox Icon -->
-              <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
-                <path d="M12 12l8-4.5" />
-                <path d="M12 12v9" />
-                <path d="M12 12L4 7.5" />
-              </svg>
+          <div class="material-cards-list">
+            
+            <!-- KARTU 1: PREMIUM SATIN FABRIC -->
+            <div class="material-card">
+              <div class="material-icon-box">
+                <!-- Geometric Satin Fabric Fold Monogram Icon -->
+                <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 18l4-12 4 12 4-12 4 12" />
+                  <path d="M6 14h12" />
+                </svg>
+              </div>
+              <h3 class="material-card-title">PREMIUM SATIN FABRIC</h3>
+              <p class="material-card-desc">
+                Balutan kain satin premium yang lembut, jatuh dengan rapi, dan berkilau mewah.
+              </p>
             </div>
-            <h3 class="material-card-title">STURDY HARDBOX</h3>
-            <p class="material-card-desc">
-              Struktur kotak tebal dan kokoh di bagian dalam untuk melindungi isi hantaran dengan aman.
-            </p>
-          </div>
 
-          <!-- KARTU 3: EXCLUSIVE ORNAMENTS -->
-          <div class="material-card">
-            <div class="material-icon-box">
-              <!-- Exclusive Diagonal Ornament Pattern Icon -->
-              <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" y1="4" x2="20" y2="20" />
-                <line x1="9" y1="4" x2="20" y2="15" />
-                <line x1="4" y1="9" x2="15" y2="20" />
-                <line x1="14" y1="4" x2="20" y2="10" />
-                <line x1="4" y1="14" x2="10" y2="20" />
-              </svg>
+            <!-- KARTU 2: STURDY HARDBOX -->
+            <div class="material-card">
+              <div class="material-icon-box">
+                <!-- Geometric 3D Cube / Hardbox Icon -->
+                <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+                  <path d="M12 12l8-4.5" />
+                  <path d="M12 12v9" />
+                  <path d="M12 12L4 7.5" />
+                </svg>
+              </div>
+              <h3 class="material-card-title">STURDY HARDBOX</h3>
+              <p class="material-card-desc">
+                Struktur kotak tebal dan kokoh di bagian dalam untuk melindungi isi hantaran dengan aman.
+              </p>
             </div>
-            <h3 class="material-card-title">EXCLUSIVE ORNAMENTS</h3>
-            <p class="material-card-desc">
-              Rangkaian bunga dan aksen dekoratif eksklusif yang disusun dengan ketelitian tinggi.
-            </p>
-          </div>
 
+            <!-- KARTU 3: EXCLUSIVE ORNAMENTS -->
+            <div class="material-card">
+              <div class="material-icon-box">
+                <!-- Exclusive Diagonal Ornament Pattern Icon -->
+                <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="4" x2="20" y2="20" />
+                  <line x1="9" y1="4" x2="20" y2="15" />
+                  <line x1="4" y1="9" x2="15" y2="20" />
+                  <line x1="14" y1="4" x2="20" y2="10" />
+                  <line x1="4" y1="14" x2="10" y2="20" />
+                </svg>
+              </div>
+              <h3 class="material-card-title">EXCLUSIVE ORNAMENTS</h3>
+              <p class="material-card-desc">
+                Rangkaian bunga dan aksen dekoratif eksklusif yang disusun dengan ketelitian tinggi.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
       <!-- 4. SECTION: EKSKLUSIVITAS LAVITRA (DETAIL GALLERY) -->
       <section class="section-eksklusivitas" id="eksklusivitas">
-        <div class="section-header-block">
-          <h2 class="section-title">Eksklusivitas Lavitra</h2>
-          <div class="section-divider"></div>
-        </div>
-
-        <div class="eksklusivitas-gallery">
-          
-          <!-- FOTO DETAIL 1 -->
-          <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 1">
-            <div class="placeholder-content">
-              <span class="placeholder-badge">📸 Tempat Foto Detail #1</span>
-              <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <div class="placeholder-title">Sudut Dekat Kotak Abu & Bunga</div>
-              <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
-            </div>
-            <img src="" alt="Detail 1" class="user-image">
+        <div class="container">
+          <div class="section-header-block">
+            <h2 class="section-title">Eksklusivitas Lavitra</h2>
+            <div class="section-divider"></div>
           </div>
 
-          <!-- FOTO DETAIL 2 -->
-          <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 2">
-            <div class="placeholder-content">
-              <span class="placeholder-badge">📸 Tempat Foto Detail #2</span>
-              <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <div class="placeholder-title">Varian Kotak Satin Maroon</div>
-              <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
+          <div class="eksklusivitas-gallery">
+            
+            <!-- FOTO DETAIL 1 -->
+            <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 1">
+              <div class="placeholder-content">
+                <span class="placeholder-badge">📸 Tempat Foto Detail #1</span>
+                <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <div class="placeholder-title">Sudut Dekat Kotak Abu & Bunga</div>
+                <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
+              </div>
+              <img src="" alt="Detail 1" class="user-image">
             </div>
-            <img src="" alt="Detail 2" class="user-image">
-          </div>
 
-          <!-- FOTO DETAIL 3 -->
-          <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 3">
-            <div class="placeholder-content">
-              <span class="placeholder-badge">📸 Tempat Foto Detail #3</span>
-              <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <div class="placeholder-title">Susunan Lengkap Bertingkat</div>
-              <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
+            <!-- FOTO DETAIL 2 -->
+            <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 2">
+              <div class="placeholder-content">
+                <span class="placeholder-badge">📸 Tempat Foto Detail #2</span>
+                <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <div class="placeholder-title">Varian Kotak Satin Maroon</div>
+                <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
+              </div>
+              <img src="" alt="Detail 2" class="user-image">
             </div>
-            <img src="" alt="Detail 3" class="user-image">
-          </div>
 
+            <!-- FOTO DETAIL 3 -->
+            <div class="img-placeholder-wrapper aspect-product" title="Klik untuk pasang foto detail 3">
+              <div class="placeholder-content">
+                <span class="placeholder-badge">📸 Tempat Foto Detail #3</span>
+                <svg class="placeholder-icon" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <div class="placeholder-title">Susunan Lengkap Bertingkat</div>
+                <div class="placeholder-hint">Rekomendasi rasio 4:3 (600 x 450 px)</div>
+              </div>
+              <img src="" alt="Detail 3" class="user-image">
+            </div>
+
+          </div>
         </div>
       </section>
 
       <!-- 5. FOOTER -->
       <footer class="site-footer">
-        <div class="footer-brand">L A V I T R A</div>
-        <address class="footer-address">
-          Jl. Kebonsari Gg.<br>
-          Salak 3 No. 16, Malang<br>
-          Contact: +62 857-9642-6922
-        </address>
-        <div>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link">Instagram</a>
+        <div class="container footer-inner">
+          <div class="footer-col footer-col-brand">
+            <div class="footer-brand">L A V I T R A</div>
+            <p class="footer-tagline">
+              Seserahan & Mahar Eksklusif di Malang. Menghadirkan keindahan, keanggunan, dan kesakralan di setiap detik momen terindah hidup Anda.
+            </p>
+          </div>
+
+          <div class="footer-col footer-col-contact">
+            <h4 class="footer-col-title">Studio Kami</h4>
+            <address class="footer-address">
+              Jl. Kebonsari Gg. Salak 3 No. 16, Malang<br>
+              Jawa Timur, Indonesia<br>
+              Contact: +62 857-9642-6922
+            </address>
+          </div>
+
+          <div class="footer-col footer-col-links">
+            <h4 class="footer-col-title">Media Sosial & Kontak</h4>
+            <div>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link">Instagram: @lavitra.seserahan</a>
+            </div>
+            <div>
+              <a href="https://wa.me/6285796426922" target="_blank" rel="noopener noreferrer" class="footer-social-link">WhatsApp Resmi</a>
+            </div>
+          </div>
         </div>
-        <div class="footer-copyright">
-          © 2024 LAVITRA SESERAHAN MALANG
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © LAVITRA SESERAHAN MALANG. ALL RIGHTS RESERVED.
+          </p>
         </div>
       </footer>
 
@@ -219,16 +261,18 @@
 
     <!-- 6. STICKY BOTTOM ACTION BAR (HARGA & TOMBOL ORDER) -->
     <div class="sticky-bottom-bar">
-      <div class="bottom-price-info">
-        <span class="price-label">Harga Mulai</span>
-        <span class="price-value">Rp 250.000</span>
+      <div class="sticky-bottom-inner">
+        <div class="bottom-price-info">
+          <span class="price-label">Harga Mulai</span>
+          <span class="price-value">Rp 250.000</span>
+        </div>
+        <a href="https://wa.me/6285796426922?text=Halo%20Lavitra,%20saya%20tertarik%20untuk%20memesan%20seserahan%20Hidden%20Box" target="_blank" rel="noopener noreferrer" class="btn-order-cta">
+          <svg viewBox="0 0 24 24">
+            <path d="M5.536 21.886a1.004 1.004 0 0 0 1.036-.064l14-9a1 1 0 0 0 0-1.644l-14-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"/>
+          </svg>
+          <span>ORDER SEKARANG</span>
+        </a>
       </div>
-      <a href="https://wa.me/6285796426922?text=Halo%20Lavitra,%20saya%20tertarik%20untuk%20memesan%20seserahan%20Hidden%20Box" target="_blank" rel="noopener noreferrer" class="btn-order-cta">
-        <svg viewBox="0 0 24 24">
-          <path d="M5.536 21.886a1.004 1.004 0 0 0 1.036-.064l14-9a1 1 0 0 0 0-1.644l-14-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"/>
-        </svg>
-        <span>ORDER</span>
-      </a>
     </div>
 
   </div>

@@ -73,9 +73,9 @@ Agar tampilan tidak pecah dan proporsional sempurna:
 
 ## 🚀 Fitur Unggulan Website
 
-1. **Proporsi Layar Mobile-First**:
-   - Jika dibuka di HP: Tampil 100% *full-bleed* seperti aplikasi native mobile.
-   - Jika dibuka di laptop/desktop: Otomatis tampil di tengah dalam bingkai smartphone elegan sehingga tata letak tidak melar/rusak. Terdapat tombol toggle `📱 Mode Layar HP` di kanan atas untuk mencoba mode tampilan.
+1. **Desain Penuh Responsif di Semua Perangkat**:
+   - **Layar Smartphone / HP**: Tampil rapi 100% *edge-to-edge* dengan navigasi hamburger, proporsi tipografi yang pas, dan scroll yang nyaman.
+   - **Layar Tablet & Desktop**: Tata letak otomatis beradaptasi menjadi grid multi-kolom yang mewah dan proporsional (katalog 4 kolom, galeri 3 kolom, material 3 kolom, dan tata letak 2 kolom editorial) dengan navigasi desktop lengkap di bagian atas.
 2. **Koleksi & Navigasi Terhubung**:
    - Menekan tombol **"LIHAT DETAIL PRODUK"** pada produk *Hidden Box* di Beranda akan langsung membuka `detail-produk.html`.
    - Tombol panah kembali (`←`) di halaman detail akan langsung mengarahkan kembali ke `index.html`.

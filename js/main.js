@@ -78,23 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. DESKTOP VIEW TOGGLE (Frame HP vs Full Width di Desktop)
-  const toggleBtn = document.querySelector('.desktop-view-toggle');
-  const viewportShell = document.querySelector('.mobile-viewport-shell');
-  if (toggleBtn && viewportShell) {
-    let isFramed = true;
-    toggleBtn.addEventListener('click', () => {
-      isFramed = !isFramed;
-      if (isFramed) {
-        viewportShell.style.maxWidth = '430px';
-        toggleBtn.innerHTML = `<span>📱</span> Model Frame HP`;
-      } else {
-        viewportShell.style.maxWidth = '600px';
-        toggleBtn.innerHTML = `<span>🔍</span> Layar Lebih Lebar`;
-      }
-    });
-  }
-
   // 5. FITUR PRAKTIS: KLIK TEMPAT GAMBAR UNTUK PASANG FOTO SENDIRI (TEST DRIVE)
   // Memungkinkan Anda untuk klik pada kotak placeholder gambar, lalu memilih foto dari laptop/HP
   // sehingga bisa langsung melihat hasil desain dengan foto Anda secara instan!
